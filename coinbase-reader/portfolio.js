@@ -17,3 +17,10 @@ Portfolio.prototype.some_func = function(){
     ;
 }
 
+Portfolio.prototype.onBookUpdate = function(data){
+    if (GLOBAL.LOGGING_ENABLED){
+        console.log('Received a book update');
+    }
+
+}
+

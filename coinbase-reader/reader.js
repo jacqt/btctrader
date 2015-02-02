@@ -17,16 +17,16 @@ exports.subscribeToFeed = function(onUpdateCallback, product_id){
     coinbaseDataFeedSocket.onopen = function(event){
         var suscribeMsg = { 
             type: 'subscribe',
-            product_id : product_id;
+            product_id : product_id
         };
         coinbaseDataFeedSocket.send(JSON.stringify(suscribeMsg));
     }
 
     coinbaseDataFeedSocket.onmessage = function(event){
-        if (global.loggingEnabled){
-            console.log(event);  
+        if (GLOBAL.LOGGING_ENABLED){
+            console.log(event.data);  
         }
-        onUpdateCallback(event);
+        onUpdateCallback(event.data);
     }
 
     return coinbaseDataFeedSocket; 
